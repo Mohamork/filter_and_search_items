@@ -14,4 +14,12 @@ def get_input(request) :
     else:
         form = BookForm
         return render(request,'input.html',{'form':form})
+    
+def result(request) :
+    books = Book.objects.all()
+    return render(request,'result.html',{'books': books})
+
+
+
+
 
