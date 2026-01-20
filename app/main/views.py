@@ -13,5 +13,5 @@ def get_input(request) :
             return HttpRedirect('result')
     else:
         form = BookForm
-        return render(request,input.html,{'form':form})
+        return render(request,'input.html',{'form':form})
 
