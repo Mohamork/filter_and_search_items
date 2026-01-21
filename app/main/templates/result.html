@@ -5,7 +5,7 @@
 
 <ul>
     {% for book in filter.qs %}
-    <li>{{ book.title|capfirst }} by {{ book.author|title }}</li>
+    <li> <strong> {{ book.title|capfirst }}</strong> by {{ book.author|title }}</li>
     {% empty %}
         <li>No match</li>
     {% endfor %}    
