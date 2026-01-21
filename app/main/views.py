@@ -15,7 +15,7 @@ def get_input(request) :
             form.save()
             return HttpResponseRedirect('result')
     else:
-        form = BookForm
+        form = BookForm()
         return render(request,'input.html',{'form':form})
     
 class BookListView(FilterView) :
