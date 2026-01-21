@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpRedirect
+from django.http import HttpResponseRedirect
 from .models import Book
 from .forms import BookForm
 from django_filters.views import FilterView
@@ -13,7 +13,7 @@ def get_input(request) :
         form = BookForm(request.POST)
         if form.is_valid() :
             form.save()
-            return HttpRedirect('result')
+            return HttpResponseRedirect('result')
     else:
         form = BookForm
         return render(request,'input.html',{'form':form})
