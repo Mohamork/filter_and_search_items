@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpRedirect
 from .models import Book
 from .forms import BookForm
+from django_filters.views import FilterView
+from .filters import BookFilter
+
 
 # Create your views here.
 
@@ -15,9 +18,14 @@ def get_input(request) :
         form = BookForm
         return render(request,'input.html',{'form':form})
     
-def result(request) :
-    books = Book.objects.all()
-    return render(request,'result.html',{'books': books})
+class BookListView(FilterView) :
+    model = Book
+    queryset = Book.objects.all()
+    filterset_class = BookFilter
+    template_name = 'result.html'
+    context_object_name = 'books'
+
+
 
 
 

@@ -6,3 +6,5 @@ class BookFilter(django_filters.FilterSet) :
         model = Book
         fields = ['author','title']
 
+        
+
